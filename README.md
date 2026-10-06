@@ -12,6 +12,7 @@ This repository is a growing collection. Each skill lives in its own folder unde
 | --- | --- | --- |
 | **Photo-to-Sketch Storytelling** | Extends a real photo into delicate hand-drawn imagery on warm ivory paper, with a miniature character participating in the scene. | [photo-to-sketch-storytelling](skills/photo-to-sketch-storytelling/SKILL.md) |
 | **Photo-to-Watercolor Journal** | Converts travel photos into fine-pen watercolor journal pages with original proportions, atmosphere-matched paper, four solid source-color swatches and handwritten English captions. | [photo-to-watercolor-journal](skills/photo-to-watercolor-journal/SKILL.md) |
+| **Photo-to-Rainbow Ink Diptych** | Pairs an untouched source-photo crop with a rainbow ink reconstruction using verified photo compositing. | [photo-to-rainbow-ink-diptych](skills/photo-to-rainbow-ink-diptych/SKILL.md) |
 
 ## Photo-to-Sketch Storytelling
 
@@ -56,6 +57,26 @@ and add a handwritten English title and short sentence.
 ```
 
 Install the complete `skills/photo-to-watercolor-journal` folder in the same way as the first skill. It includes prompt and quality-check references, and an optional `scripts/extract_palette.py` helper. The helper needs Pillow and returns four representative colors present in the original source pixels; without it, the agent can choose colors visually. Generated swatches may still differ from exact RGB values, and handwritten text needs visual verification. Installing the skill does not provide an image model.
+
+## Photo-to-Rainbow Ink Diptych
+
+Pair an untouched 16:9 source-photo crop with a rainbow ink and watercolor reconstruction on rough, torn or folded paper, within a vertical 9:16 canvas. Generate only the lower art first, then composite the actual original photo above using the included lossless, pixel-verified assembly helper.
+
+**Best suited to:** neon streets and night lights, water and reflections, foliage, flowers, landscapes, textiles, architecture, animals and environmental portraits. Source colors govern the strength of the seven hues; paper folds follow source structure and light. No text, logos, frames, stars or synthetic smoke.
+
+[Skill workflow](skills/photo-to-rainbow-ink-diptych/SKILL.md)
+
+The default canvas is **1152×2048**, with a **1152×648** real-photo panel above a **1152×1400** art panel. The top occupies about 31.6% of the height. Only crop and uniformly resize the original above; do not recolor, sharpen, retouch or regenerate it. Inspect crops of tall photos before proceeding. People below retain their original poses as abstract silhouettes, rather than newly invented faces.
+
+Use:
+
+```text
+Use $photo-to-rainbow-ink-diptych to create a 9:16 rainbow ink diptych.
+Generate the lower artwork first, then composite an untouched 16:9 crop
+of my original photo above it. No text, logos, frames or smoke effects.
+```
+
+Install the complete `skills/photo-to-rainbow-ink-diptych` folder in the same way as the other skills. It includes generation prompts, scene adaptation, quality checks and `scripts/compose_diptych.py`, which prepares a crop preview, assembles the panels, and verifies the saved top pixels against the resized source crop. Image generation requires a suitable host tool; assembly requires Python and Pillow (`python -m pip install "Pillow>=10"`). Installing the skill does not install an image model.
 
 ## Requirements
 
