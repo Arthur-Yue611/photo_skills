@@ -1,0 +1,4 @@
+interface:
+  display_name: "Photo-to-Rainbow Ink Diptych"
+  short_description: "Pair untouched photos with rainbow ink on textured paper"
+  default_prompt: "Use $photo-to-rainbow-ink-diptych to create a 9:16 artwork with my real photo above a rainbow ink reconstruction, then composite the original photo on top."
