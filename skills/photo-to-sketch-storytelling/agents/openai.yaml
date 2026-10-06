@@ -1,0 +1,8 @@
+interface:
+  display_name: "Photo-to-Sketch Storytelling"
+  short_description: "Extend photos into hand-drawn stories on warm ivory paper"
+  default_prompt: "Use $photo-to-sketch-storytelling to turn my uploaded photo into a portrait photography-and-drawing artwork with a miniature character and a story inspired by the photo."
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
+policy:
+  allow_implicit_invocation: true
