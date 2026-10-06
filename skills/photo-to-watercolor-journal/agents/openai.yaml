@@ -1,0 +1,4 @@
+interface:
+  display_name: "Photo-to-Watercolor Journal"
+  short_description: "Turn travel photos into ink and watercolor journal art"
+  default_prompt: "Use $photo-to-watercolor-journal to turn my photo into a watercolor travel journal with four source colors and handwritten English captions."

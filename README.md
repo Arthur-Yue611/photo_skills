@@ -11,6 +11,7 @@ This repository is a growing collection. Each skill lives in its own folder unde
 | Skill | What it does | Folder |
 | --- | --- | --- |
 | **Photo-to-Sketch Storytelling** | Extends a real photo into delicate hand-drawn imagery on warm ivory paper, with a miniature character participating in the scene. | [photo-to-sketch-storytelling](skills/photo-to-sketch-storytelling/SKILL.md) |
+| **Photo-to-Watercolor Journal** | Converts travel photos into fine-pen watercolor journal pages with original proportions, atmosphere-matched paper, four solid source-color swatches and handwritten English captions. | [photo-to-watercolor-journal](skills/photo-to-watercolor-journal/SKILL.md) |
 
 ## Photo-to-Sketch Storytelling
 
@@ -37,6 +38,24 @@ The default is a **2:3 portrait**, warm ivory paper, fine linework and light wat
 | [`references/quality-checks.md`](skills/photo-to-sketch-storytelling/references/quality-checks.md) | Checks for identities, continuity, character contact and visual style |
 
 The trigger metadata is bilingual; the detailed workflow and references are currently written in Chinese. A multilingual agent can follow them and respond in your language.
+
+## Photo-to-Watercolor Journal
+
+Turn the entire photo scene into a fine-pen and soft-watercolor travel journal illustration. Keep the original aspect ratio. Let irregular painted edges fade into paper whose tone follows the scene: warm for sunlit scenes, cool for cool landscapes, and deeper blue-grey for night scenes.
+
+Add exactly four rounded square **solid-color** swatches drawn from the original photo at the lower right, plus one handwritten English title and one short sentence beneath it. No borders, split panels, stickers or miniature characters.
+
+**Best suited to:** streets, buildings, city skylines, waterfronts, trains and stations, blue-hour and night scenes, mountains, countryside and other travel landscapes. Environmental travel portraits and group photos can also be illustrated, with care for faces and clothing. ID photos, product catalogs and technical maps are outside the intended use.
+
+Use:
+
+```text
+Use $photo-to-watercolor-journal to illustrate this photo as a travel journal.
+Keep its aspect ratio, use four solid source-color swatches,
+and add a handwritten English title and short sentence.
+```
+
+Install the complete `skills/photo-to-watercolor-journal` folder in the same way as the first skill. It includes prompt and quality-check references, and an optional `scripts/extract_palette.py` helper. The helper needs Pillow and returns four representative colors present in the original source pixels; without it, the agent can choose colors visually. Generated swatches may still differ from exact RGB values, and handwritten text needs visual verification. Installing the skill does not provide an image model.
 
 ## Requirements
 
