@@ -13,7 +13,6 @@
 | **Photo-to-Sketch Storytelling · 让照片长进画里** | 保留上方摄影现场感，让原片主体向下延伸成暖白纸上的细腻手绘，并加入有明确动作关系的小人物。 | [进入 Skill](skills/photo-to-sketch-storytelling/SKILL.md) |
 | **Photo-to-Watercolor Journal · 照片转水彩旅行手账** | 保持原片比例，将场景整体转为钢笔淡彩插画，配氛围纸底、四个纯色色卡与英文手写标题短句。 | [进入 Skill](skills/photo-to-watercolor-journal/SKILL.md) |
 | **Photo-to-Rainbow Ink Diptych · 照片转七彩水墨双联** | 上方保留真实原片，下方重构七彩水墨、湿颜料与撕纸折叠，脚本拼接保护原图。 | [进入 Skill](skills/photo-to-rainbow-ink-diptych/SKILL.md) |
-
 | **Photo-to-Paper Relief Poster · 照片转纸浆浅浮雕海报** | 独立3:4艺术海报，主体真实细节融入薄纸浆浮雕，约60%象牙白留白，配细宋体中文标题与微型英文；支持原脸回贴。 | [进入 Skill](skills/photo-to-paper-relief-poster/SKILL.md) |
 
 ## 第一个 Skill 如何工作

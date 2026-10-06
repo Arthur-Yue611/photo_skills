@@ -13,7 +13,6 @@ This repository is a growing collection. Each skill lives in its own folder unde
 | **Photo-to-Sketch Storytelling** | Extends a real photo into delicate hand-drawn imagery on warm ivory paper, with a miniature character participating in the scene. | [photo-to-sketch-storytelling](skills/photo-to-sketch-storytelling/SKILL.md) |
 | **Photo-to-Watercolor Journal** | Converts travel photos into fine-pen watercolor journal pages with original proportions, atmosphere-matched paper, four solid source-color swatches and handwritten English captions. | [photo-to-watercolor-journal](skills/photo-to-watercolor-journal/SKILL.md) |
 | **Photo-to-Rainbow Ink Diptych** | Pairs an untouched source-photo crop with a rainbow ink reconstruction using verified photo compositing. | [photo-to-rainbow-ink-diptych](skills/photo-to-rainbow-ink-diptych/SKILL.md) |
-
 | **Photo-to-Paper Relief Poster** | Creates standalone 3:4 editorial posters with photographic subjects dissolving into thin paper-pulp relief, ivory negative space and precise Chinese-English type. | [photo-to-paper-relief-poster](skills/photo-to-paper-relief-poster/SKILL.md) |
 
 ## Photo-to-Sketch Storytelling
