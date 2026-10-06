@@ -1,0 +1,4 @@
+interface:
+  display_name: "Photo-to-Paper Relief Poster"
+  short_description: "Turn photos into airy paper relief art posters"
+  default_prompt: "Use $photo-to-paper-relief-poster to turn my photo into one 3:4 paper-pulp relief poster with a small Chinese title, spacious ivory paper and unchanged facial features."

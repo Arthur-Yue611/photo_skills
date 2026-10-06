@@ -14,6 +14,8 @@ This repository is a growing collection. Each skill lives in its own folder unde
 | **Photo-to-Watercolor Journal** | Converts travel photos into fine-pen watercolor journal pages with original proportions, atmosphere-matched paper, four solid source-color swatches and handwritten English captions. | [photo-to-watercolor-journal](skills/photo-to-watercolor-journal/SKILL.md) |
 | **Photo-to-Rainbow Ink Diptych** | Pairs an untouched source-photo crop with a rainbow ink reconstruction using verified photo compositing. | [photo-to-rainbow-ink-diptych](skills/photo-to-rainbow-ink-diptych/SKILL.md) |
 
+| **Photo-to-Paper Relief Poster** | Creates standalone 3:4 editorial posters with photographic subjects dissolving into thin paper-pulp relief, ivory negative space and precise Chinese-English type. | [photo-to-paper-relief-poster](skills/photo-to-paper-relief-poster/SKILL.md) |
+
 ## Photo-to-Sketch Storytelling
 
 Keep the upper part photographic. Continue an actual element from the photo into fine pencil or ink linework below. Add restrained color from the original image and a small character with a clear physical action.
@@ -78,6 +80,30 @@ of my original photo above it. No text, logos, frames or smoke effects.
 
 Install the complete `skills/photo-to-rainbow-ink-diptych` folder in the same way as the other skills. It includes generation prompts, scene adaptation, quality checks and `scripts/compose_diptych.py`, which prepares a crop preview, assembles the panels, and verifies the saved top pixels against the resized source crop. Image generation requires a suitable host tool; assembly requires Python and Pillow (`python -m pip install "Pillow>=10"`). Installing the skill does not install an image model.
 
+## Photo-to-Paper Relief Poster
+
+Create one independent **3:4 portrait art poster** per source photo. Keep the recognizable subject's structure, pose, proportions, core colors and relationships; simplify distracting background. Position the subject in the lower-middle right, with about 60% clean warm ivory negative space. Preserve photographic detail inside while the edges dissolve into thin handmade paper-pulp bas-relief, torn fibers, mineral pigment and dry-brush gaps. Use soft side light, subtle shadows and lightweight matte relief.
+
+Add a small Chinese serif/Mincho title at the upper left, a smaller English phrase, an editorial sequence number and a short line sampled from the source palette. Use strictly aligned, spacious typography and one minimal footer. Deliver standalone posters: no diptychs, comparisons, grids, rectangular photo frames, heavy titles, additional people, watermarks or all-over texture.
+
+[Skill workflow](skills/photo-to-paper-relief-poster/SKILL.md)
+
+**Best suited to:** architecture, traditional gardens, doors and windows, flowers, trees, still life, mountains, lakes, forests, countryside, street scenes, stations, animals and environmental travel portraits. Modern and Western subjects retain their own character; they are not converted into Chinese architecture. Dense crowds, facial close-ups, ID photos and technical maps are outside the main use.
+
+The default is **1536×2048 PNG**. Visible faces are composited directly from the source using uniform scale and translation only, with opaque feature masks and feathering outside them. Keep original facial features, expression, glasses and skin color; do not reshape or invent sharper details. Inspect side profiles for doubled noses, mouths or glasses. Exact checks compare final core pixels with the uniformly resampled source, not the unscaled original.
+
+Use:
+
+```text
+Use $photo-to-paper-relief-poster to make a standalone 3:4 paper-pulp relief poster.
+Keep about 60% ivory negative space, a small Chinese title and minimal English type.
+Preserve the original faces and deliver one separate poster for each photo.
+```
+
+Install the complete `skills/photo-to-paper-relief-poster` folder like the other skills. It includes prompts, scene guidance, quality checks, typography and face-mask instructions, and the optional `scripts/compose_poster.py` helper. Generate a text-free art base first, then add precise typography and optional source facial cores. The helper needs Python, Pillow, fontTools and an actually installed CJK serif/Mincho font (`python -m pip install "Pillow>=10" "fonttools>=4"`). It does not bundle fonts, generate images or detect faces. Image-only hosts must check generated text carefully; prompts alone do not guarantee unchanged faces.
+
+Search keywords: photo to paper relief, paper-pulp bas-relief, minimalist art poster, editorial typography, sculpted paper, 纸浆浅浮雕, 照片艺术海报.
+
 ## Requirements
 
 Use an agent host that supports Agent Skills and can view your uploaded photo. To produce an image, the host also needs an image generation or editing tool. **Installing this skill does not install an image model or grant image-tool access.**
@@ -129,7 +155,7 @@ You can also ask for:
 - **Multiple photos:** “Create one independent artwork for each of these photos.”
 - **A revision:** “Keep this composition and fix only the little character's hand contact.”
 
-Generative editing may redraw faces or details. The workflow checks for these changes and asks for targeted fixes where possible; it does not promise pixel-perfect preservation.
+Generative editing may redraw faces or details. Prompts alone cannot guarantee unchanged faces. Skills with deterministic source-face compositing can verify pixels inside protected cores against the uniformly resampled source; areas outside those masks still need inspection.
 
 ## Add another skill
 
