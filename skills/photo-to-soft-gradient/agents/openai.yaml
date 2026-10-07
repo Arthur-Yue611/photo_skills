@@ -1,0 +1,4 @@
+interface:
+  display_name: "Photo to Soft Gradient"
+  short_description: "Pair a real photo with soft gradient art"
+  default_prompt: "Use $photo-to-soft-gradient to pair an untouched crop of my photo with soft gradient art in a 9:16 image. Keep original faces and add no text or frames."

@@ -1,171 +1,105 @@
 # Photo Skills
 
-Reusable AI skills for photo editing, creative transformations, and visual storytelling.
+Reusable skills that turn photos into different styles of art.
 
-[中文说明](README.zh-CN.md) · [Available skills](#available-skills) · [Install](#install) · [License](LICENSE)
+[中文说明](README.zh-CN.md) · [License](LICENSE)
 
-This repository is a growing collection. Each skill lives in its own folder under `skills/` and can be installed independently. Start with one skill; add more as the collection grows.
+Each skill has its own folder under `skills/`. Download and install only the skills you want.
 
 ## Available skills
 
-| Skill | What it does | Folder |
+| Skill | Result | Folder |
 | --- | --- | --- |
-| **Photo-to-Sketch Storytelling** | Extends a real photo into delicate hand-drawn imagery on warm ivory paper, with a miniature character participating in the scene. | [photo-to-sketch-storytelling](skills/photo-to-sketch-storytelling/SKILL.md) |
-| **Photo-to-Watercolor Journal** | Converts travel photos into fine-pen watercolor journal pages with original proportions, atmosphere-matched paper, four solid source-color swatches and handwritten English captions. | [photo-to-watercolor-journal](skills/photo-to-watercolor-journal/SKILL.md) |
-| **Photo-to-Rainbow Ink Diptych** | Pairs an untouched source-photo crop with a rainbow ink reconstruction using verified photo compositing. | [photo-to-rainbow-ink-diptych](skills/photo-to-rainbow-ink-diptych/SKILL.md) |
-| **Photo-to-Paper Relief Poster** | Creates standalone 3:4 editorial posters with photographic subjects dissolving into thin paper-pulp relief, ivory negative space and precise Chinese-English type. | [photo-to-paper-relief-poster](skills/photo-to-paper-relief-poster/SKILL.md) |
+| Photo-to-Sketch Storytelling | A real photo continues into a drawing on warm white paper, with a small character taking part in the scene. | [photo-to-sketch-storytelling](skills/photo-to-sketch-storytelling/SKILL.md) |
+| Photo-to-Watercolor Journal | A pen-and-watercolor travel page with four color swatches and handwritten English captions. | [photo-to-watercolor-journal](skills/photo-to-watercolor-journal/SKILL.md) |
+| Photo-to-Rainbow Ink Diptych | A real photo above colorful ink and watercolor art with rough paper texture. | [photo-to-rainbow-ink-diptych](skills/photo-to-rainbow-ink-diptych/SKILL.md) |
+| Photo-to-Paper Relief Poster | A separate 3:4 poster with thin paper relief, warm white space and small Chinese-English titles. | [photo-to-paper-relief-poster](skills/photo-to-paper-relief-poster/SKILL.md) |
+| Photo to Soft Gradient | A real photo above soft gradient art, with overlapping color fields and a few recognizable details. | [photo-to-soft-gradient](skills/photo-to-soft-gradient/SKILL.md) |
 
-## Photo-to-Sketch Storytelling
+## Choose a style
 
-Keep the upper part photographic. Continue an actual element from the photo into fine pencil or ink linework below. Add restrained color from the original image and a small character with a clear physical action.
+| Style | Suitable photos |
+| --- | --- |
+| Photo and drawing | Scenes with an object or shape that can continue into a small drawn story |
+| Watercolor journal | Streets, buildings, nature, travel scenes and people with their surroundings |
+| Rainbow ink | Night lights, water, plants, buildings, animals and travel scenes |
+| Paper relief poster | Buildings, flowers, trees, still life, landscapes and people with their surroundings |
+| Soft gradient | Flowers, leaves, birds, animals, water, trees, night scenes, buildings and people with their surroundings |
 
-The workflow designs a story from three connected parts:
+Faces need extra care in all generated styles. Some skills include scripts that place actual source-face pixels into the result. A prompt alone cannot guarantee unchanged faces.
 
-| Photo element | Transformation | Character action |
-| --- | --- | --- |
-| A hanging scarf | A knitted path | Walks up a fold or lays out its edge |
-| A woven twig ring | A winding bridge or small boat | Weaves loose strands or pushes with a pole |
-| Moving leaves and tree shadows | A curling ribbon of forest breeze | Winds it onto a reel |
+## Photo to Soft Gradient
 
-The default is a **2:3 portrait**, warm ivory paper, fine linework and light watercolor or colored pencil. The story, palette and transition are chosen from the uploaded photo. You can override the aspect ratio, style, character count or story.
+Create one vertical **9:16** image for each photo. Put an actual **16:9** crop of the original at the top. Use only crop and uniform resize there: no recoloring, retouching or generated replacement.
 
-### Included resources
+Generate the lower art first. Keep a few details that make the photo recognizable, while changing scale, position or space. Build **3–5 large, soft, overlapping color fields** on a dark blue, violet, green or source-colored base. Let one field cross an outer subject edge and dissolve it into light. Keep some details clear and a wide area quiet.
+
+Add no text, frames, watermarks, neon outlines, stars, smoke, coarse grain or paper texture. Finish by placing the real photo above the generated art.
+
+### Suitable photos
+
+| Photo type | What to keep |
+| --- | --- |
+| Flowers and leaves | Flower centers, petal edges, leaf veins and original colors |
+| Birds and other animals | Species, number, pose and body shape |
+| Lakes, ponds, reeds and reflections | Shoreline, plant shapes, ripples and real reflection direction |
+| Trees and woods | Main trunks, branch curves and leaf shapes |
+| Night scenes, streets and buildings | Light direction, a clear building edge or a recognizable object |
+| People with their surroundings | Original faces, clothing, pose and important contacts |
+| Face close-ups, ID photos and exact maps | Not a main use; this style changes space and reduces detail |
+
+Default output: **1152×2048 PNG**. The upper photo is **1152×648**; the lower art is **1152×1400**. The top is about 31.6% of the height.
+
+For visible faces below, keep the actual source facial features, expression, glasses and skin color. Use reviewed masks, uniform scale and translation; do not tint or dissolve the protected face area. The script checks the saved top against the resized source crop, and protected faces against the transformed source. It does not choose a good crop or detect faces for you.
+
+### Use
+
+```text
+Use $photo-to-soft-gradient to turn this photo into a 9:16 photo-and-gradient image.
+Keep a real 16:9 crop above. Generate the lower art with 3–5 soft color fields,
+a few clear source details and a quiet dark area. Preserve original faces.
+Add no text or frames. Generate the lower art first, then assemble the real photo above it.
+```
+
+### Included files
 
 | File | Purpose |
 | --- | --- |
-| [`SKILL.md`](skills/photo-to-sketch-storytelling/SKILL.md) | The complete agent workflow and trigger metadata |
-| [`agents/openai.yaml`](skills/photo-to-sketch-storytelling/agents/openai.yaml) | English display name and invocation metadata |
-| [`references/prompt-template.md`](skills/photo-to-sketch-storytelling/references/prompt-template.md) | Editable prompt structure and revision template |
-| [`references/story-patterns.md`](skills/photo-to-sketch-storytelling/references/story-patterns.md) | Source-element, transformation and action patterns |
-| [`references/quality-checks.md`](skills/photo-to-sketch-storytelling/references/quality-checks.md) | Checks for identities, continuity, character contact and visual style |
+| `SKILL.md` | Main workflow and matching description |
+| `agents/openai.yaml` | Name, short description and example request |
+| `references/prompt-template.md` | Lower-art prompt and revision examples |
+| `references/scene-guide.md` | Guidance for different photo types |
+| `references/assembly-and-faces.md` | Crop, assembly and original-face instructions |
+| `references/quality-checks.md` | Checks before delivery |
+| `scripts/compose_image.py` | Crop preview, assembly and saved-pixel checks |
 
-The trigger metadata is bilingual; the detailed workflow and references are currently written in Chinese. A multilingual agent can follow them and respond in your language.
+## Download and install
 
-## Photo-to-Watercolor Journal
+1. On the repository page, select **Code → Download ZIP**.
+2. Extract the ZIP and open `skills/`.
+3. Copy the complete skill folder you want, including its references and scripts, into your AI tool's supported skill location, or use that tool's supported import flow.
+4. Upload your own photo and ask the AI to use the skill.
 
-Turn the entire photo scene into a fine-pen and soft-watercolor travel journal illustration. Keep the original aspect ratio. Let irregular painted edges fade into paper whose tone follows the scene: warm for sunlit scenes, cool for cool landscapes, and deeper blue-grey for night scenes.
-
-Add exactly four rounded square **solid-color** swatches drawn from the original photo at the lower right, plus one handwritten English title and one short sentence beneath it. No borders, split panels, stickers or miniature characters.
-
-**Best suited to:** streets, buildings, city skylines, waterfronts, trains and stations, blue-hour and night scenes, mountains, countryside and other travel landscapes. Environmental travel portraits and group photos can also be illustrated, with care for faces and clothing. ID photos, product catalogs and technical maps are outside the intended use.
-
-Use:
-
-```text
-Use $photo-to-watercolor-journal to illustrate this photo as a travel journal.
-Keep its aspect ratio, use four solid source-color swatches,
-and add a handwritten English title and short sentence.
-```
-
-Install the complete `skills/photo-to-watercolor-journal` folder in the same way as the first skill. It includes prompt and quality-check references, and an optional `scripts/extract_palette.py` helper. The helper needs Pillow and returns four representative colors present in the original source pixels; without it, the agent can choose colors visually. Generated swatches may still differ from exact RGB values, and handwritten text needs visual verification. Installing the skill does not provide an image model.
-
-## Photo-to-Rainbow Ink Diptych
-
-Pair an untouched 16:9 source-photo crop with a rainbow ink and watercolor reconstruction on rough, torn or folded paper, within a vertical 9:16 canvas. Generate only the lower art first, then composite the actual original photo above using the included lossless, pixel-verified assembly helper.
-
-**Best suited to:** neon streets and night lights, water and reflections, foliage, flowers, landscapes, textiles, architecture, animals and environmental portraits. Source colors govern the strength of the seven hues; paper folds follow source structure and light. No text, logos, frames, stars or synthetic smoke.
-
-[Skill workflow](skills/photo-to-rainbow-ink-diptych/SKILL.md)
-
-The default canvas is **1152×2048**, with a **1152×648** real-photo panel above a **1152×1400** art panel. The top occupies about 31.6% of the height. Only crop and uniformly resize the original above; do not recolor, sharpen, retouch or regenerate it. Inspect crops of tall photos before proceeding. People below retain their original poses as abstract silhouettes, rather than newly invented faces.
-
-Use:
-
-```text
-Use $photo-to-rainbow-ink-diptych to create a 9:16 rainbow ink diptych.
-Generate the lower artwork first, then composite an untouched 16:9 crop
-of my original photo above it. No text, logos, frames or smoke effects.
-```
-
-Install the complete `skills/photo-to-rainbow-ink-diptych` folder in the same way as the other skills. It includes generation prompts, scene adaptation, quality checks and `scripts/compose_diptych.py`, which prepares a crop preview, assembles the panels, and verifies the saved top pixels against the resized source crop. Image generation requires a suitable host tool; assembly requires Python and Pillow (`python -m pip install "Pillow>=10"`). Installing the skill does not install an image model.
-
-## Photo-to-Paper Relief Poster
-
-Create one independent **3:4 portrait art poster** per source photo. Keep the recognizable subject's structure, pose, proportions, core colors and relationships; simplify distracting background. Position the subject in the lower-middle right, with about 60% clean warm ivory negative space. Preserve photographic detail inside while the edges dissolve into thin handmade paper-pulp bas-relief, torn fibers, mineral pigment and dry-brush gaps. Use soft side light, subtle shadows and lightweight matte relief.
-
-Add a small Chinese serif/Mincho title at the upper left, a smaller English phrase, an editorial sequence number and a short line sampled from the source palette. Use strictly aligned, spacious typography and one minimal footer. Deliver standalone posters: no diptychs, comparisons, grids, rectangular photo frames, heavy titles, additional people, watermarks or all-over texture.
-
-[Skill workflow](skills/photo-to-paper-relief-poster/SKILL.md)
-
-**Best suited to:** architecture, traditional gardens, doors and windows, flowers, trees, still life, mountains, lakes, forests, countryside, street scenes, stations, animals and environmental travel portraits. Modern and Western subjects retain their own character; they are not converted into Chinese architecture. Dense crowds, facial close-ups, ID photos and technical maps are outside the main use.
-
-The default is **1536×2048 PNG**. Visible faces are composited directly from the source using uniform scale and translation only, with opaque feature masks and feathering outside them. Keep original facial features, expression, glasses and skin color; do not reshape or invent sharper details. Inspect side profiles for doubled noses, mouths or glasses. Exact checks compare final core pixels with the uniformly resampled source, not the unscaled original.
-
-Use:
-
-```text
-Use $photo-to-paper-relief-poster to make a standalone 3:4 paper-pulp relief poster.
-Keep about 60% ivory negative space, a small Chinese title and minimal English type.
-Preserve the original faces and deliver one separate poster for each photo.
-```
-
-Install the complete `skills/photo-to-paper-relief-poster` folder like the other skills. It includes prompts, scene guidance, quality checks, typography and face-mask instructions, and the optional `scripts/compose_poster.py` helper. Generate a text-free art base first, then add precise typography and optional source facial cores. The helper needs Python, Pillow, fontTools and an actually installed CJK serif/Mincho font (`python -m pip install "Pillow>=10" "fonttools>=4"`). It does not bundle fonts, generate images or detect faces. Image-only hosts must check generated text carefully; prompts alone do not guarantee unchanged faces.
-
-Search keywords: photo to paper relief, paper-pulp bas-relief, minimalist art poster, editorial typography, sculpted paper, 纸浆浅浮雕, 照片艺术海报.
+For the new style, choose `skills/photo-to-soft-gradient/`. Do not install only `SKILL.md`; keep the entire folder.
 
 ## Requirements
 
-Use an agent host that supports Agent Skills and can view your uploaded photo. To produce an image, the host also needs an image generation or editing tool. **Installing this skill does not install an image model or grant image-tool access.**
+Your AI tool must be able to read skills and view photos. Generating art also requires an image generation/editing tool. **Installing a skill does not install an image model or grant tool access.** Different image models can produce different results.
 
-Without an image editor, the skill can prepare a complete prompt for a tool you use elsewhere. It contains no external API runner, credentials or model-specific dependency.
-
-## Install
-
-### Use a skill installer
-
-In a Codex environment with `$skill-installer`, ask:
-
-```text
-$skill-installer Install the photo-to-sketch-storytelling skill from
-https://github.com/Arthur-Yue611/photo_skills
-at skills/photo-to-sketch-storytelling.
-```
-
-### Download or clone
-
-Download this repository with **Code → Download ZIP**, or clone it:
+The soft-gradient assembly script needs Python 3 and Pillow:
 
 ```bash
-git clone https://github.com/Arthur-Yue611/photo_skills.git
+python -m pip install "Pillow>=10"
 ```
 
-Copy the **complete** `skills/photo-to-sketch-storytelling` folder to a supported skill directory in your host. For local Codex, the documented user skill directory is `~/.agents/skills/`; repository-scoped skills live under `.agents/skills/` in the target project. Copy the folder, including its references and icon, rather than only `SKILL.md`.
+Without an image tool, ask for a prompt only. Without ordinary image assembly, a generated upper photo cannot be claimed as the untouched original.
 
-For hosts with a skill import or upload flow, follow that host's supported installation method. This GitHub repository is a source distribution; it is not automatically a listing in a public plugin directory.
+## Add a skill
 
-Official guidance: [Build skills](https://learn.chatgpt.com/docs/build-skills).
+Create a separate folder under `skills/`, add its `SKILL.md` and needed files, then add a row to both README tables. Keep all table rows together with no blank line between them.
 
-## Use
-
-Upload your own photo and invoke the installed skill:
-
-```text
-Use $photo-to-sketch-storytelling to turn this photo into a portrait artwork
-that blends real photography with delicate hand-drawn storytelling.
-Choose a natural extension element and add one miniature character
-performing a clear action.
-```
-
-In ChatGPT, select the installed skill using `@`. In Codex CLI or an IDE extension, mention it with `$`.
-
-You can also ask for:
-
-- **Prompt only:** “Use this skill to prepare a final prompt; do not generate an image.”
-- **Multiple photos:** “Create one independent artwork for each of these photos.”
-- **A revision:** “Keep this composition and fix only the little character's hand contact.”
-
-Generative editing may redraw faces or details. Prompts alone cannot guarantee unchanged faces. Skills with deterministic source-face compositing can verify pixels inside protected cores against the uniformly resampled source; areas outside those masks still need inspection.
-
-## Add another skill
-
-1. Create `skills/your-skill-name/` with its own `SKILL.md`.
-2. Include a lowercase, hyphenated `name` and a clear `description` in YAML front matter.
-3. Add only the references, assets or scripts needed for that skill.
-4. Add its name, purpose and relative folder link to the tables in both README files.
-5. Validate and try it on a realistic task before publishing.
-
-Keep personal photos, credentials and generated private outputs outside the repository. Only include sample images that you have chosen to share and have permission to distribute.
+Keep private photos, account details and generated private images outside this repository. Publish third-party example images only when you have permission.
 
 ## License
 
-The instructions, documentation and bundled icon are distributed under the [MIT License](LICENSE). The license does not cover user-uploaded photos or grant rights to third-party image inputs.
+Skill instructions and included code use the [MIT License](LICENSE). User photos and third-party images are not covered by that license.
