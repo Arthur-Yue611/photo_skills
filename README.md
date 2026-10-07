@@ -1,105 +1,143 @@
 # Photo Skills
 
-Reusable skills that turn photos into different styles of art.
+Five AI skills for turning your photos into drawings, watercolor pages, colorful ink art, paper art posters and soft gradient images.
 
 [中文说明](README.zh-CN.md) · [License](LICENSE)
 
-Each skill has its own folder under `skills/`. Download and install only the skills you want.
+Choose a style below. Each skill has its own folder and can be downloaded separately as part of this collection.
 
-## Available skills
+## Choose a skill
 
-| Skill | Result | Folder |
+| Style | What you get | Skill name and files |
 | --- | --- | --- |
-| Photo-to-Sketch Storytelling | A real photo continues into a drawing on warm white paper, with a small character taking part in the scene. | [photo-to-sketch-storytelling](skills/photo-to-sketch-storytelling/SKILL.md) |
-| Photo-to-Watercolor Journal | A pen-and-watercolor travel page with four color swatches and handwritten English captions. | [photo-to-watercolor-journal](skills/photo-to-watercolor-journal/SKILL.md) |
-| Photo-to-Rainbow Ink Diptych | A real photo above colorful ink and watercolor art with rough paper texture. | [photo-to-rainbow-ink-diptych](skills/photo-to-rainbow-ink-diptych/SKILL.md) |
-| Photo-to-Paper Relief Poster | A separate 3:4 poster with thin paper relief, warm white space and small Chinese-English titles. | [photo-to-paper-relief-poster](skills/photo-to-paper-relief-poster/SKILL.md) |
-| Photo to Soft Gradient | A real photo above soft gradient art, with overlapping color fields and a few recognizable details. | [photo-to-soft-gradient](skills/photo-to-soft-gradient/SKILL.md) |
+| Photo and drawing | The top stays photographic. A real object continues into a drawing below, with a small character taking part. | [photo-to-sketch-storytelling](skills/photo-to-sketch-storytelling/SKILL.md) |
+| Watercolor travel journal | A soft watercolor drawing with thin pen lines, four color samples and handwritten English captions. | [photo-to-watercolor-journal](skills/photo-to-watercolor-journal/SKILL.md) |
+| Rainbow ink | Your real photo above colorful ink and watercolor art, with visible paper texture. | [photo-to-rainbow-ink-diptych](skills/photo-to-rainbow-ink-diptych/SKILL.md) |
+| Paper art poster | A 3:4 poster with a detailed subject, paper fibers around its edges, plenty of warm white space and small titles. | [photo-to-paper-relief-poster](skills/photo-to-paper-relief-poster/SKILL.md) |
+| Soft gradient | Your real photo above soft, overlapping areas of color, with a few clear details from the original. | [photo-to-soft-gradient](skills/photo-to-soft-gradient/SKILL.md) |
 
-## Choose a style
+## Photo and drawing — photo-to-sketch-storytelling
 
-| Style | Suitable photos |
-| --- | --- |
-| Photo and drawing | Scenes with an object or shape that can continue into a small drawn story |
-| Watercolor journal | Streets, buildings, nature, travel scenes and people with their surroundings |
-| Rainbow ink | Night lights, water, plants, buildings, animals and travel scenes |
-| Paper relief poster | Buildings, flowers, trees, still life, landscapes and people with their surroundings |
-| Soft gradient | Flowers, leaves, birds, animals, water, trees, night scenes, buildings and people with their surroundings |
+Keep the upper part of the photo realistic. Choose something already in it, such as a scarf, branch, road or reflection, and continue that shape downward as a drawing on warm white paper. Add one small character doing something connected to that shape: walking, pulling, weaving or rowing.
 
-Faces need extra care in all generated styles. Some skills include scripts that place actual source-face pixels into the result. A prompt alone cannot guarantee unchanged faces.
+Use fine pencil or ink lines and a little color from the photo. Choose a different story for each scene. The default image is vertical, with a **2:3** ratio.
 
-## Photo to Soft Gradient
+**Suitable photos:** travel scenes, plants, clothes, objects and people with their surroundings. Photos with a clear shape or action work especially well.
 
-Create one vertical **9:16** image for each photo. Put an actual **16:9** crop of the original at the top. Use only crop and uniform resize there: no recoloring, retouching or generated replacement.
-
-Generate the lower art first. Keep a few details that make the photo recognizable, while changing scale, position or space. Build **3–5 large, soft, overlapping color fields** on a dark blue, violet, green or source-colored base. Let one field cross an outer subject edge and dissolve it into light. Keep some details clear and a wide area quiet.
-
-Add no text, frames, watermarks, neon outlines, stars, smoke, coarse grain or paper texture. Finish by placing the real photo above the generated art.
-
-### Suitable photos
-
-| Photo type | What to keep |
-| --- | --- |
-| Flowers and leaves | Flower centers, petal edges, leaf veins and original colors |
-| Birds and other animals | Species, number, pose and body shape |
-| Lakes, ponds, reeds and reflections | Shoreline, plant shapes, ripples and real reflection direction |
-| Trees and woods | Main trunks, branch curves and leaf shapes |
-| Night scenes, streets and buildings | Light direction, a clear building edge or a recognizable object |
-| People with their surroundings | Original faces, clothing, pose and important contacts |
-| Face close-ups, ID photos and exact maps | Not a main use; this style changes space and reduces detail |
-
-Default output: **1152×2048 PNG**. The upper photo is **1152×648**; the lower art is **1152×1400**. The top is about 31.6% of the height.
-
-For visible faces below, keep the actual source facial features, expression, glasses and skin color. Use reviewed masks, uniform scale and translation; do not tint or dissolve the protected face area. The script checks the saved top against the resized source crop, and protected faces against the transformed source. It does not choose a good crop or detect faces for you.
-
-### Use
+**Example request:**
 
 ```text
-Use $photo-to-soft-gradient to turn this photo into a 9:16 photo-and-gradient image.
-Keep a real 16:9 crop above. Generate the lower art with 3–5 soft color fields,
-a few clear source details and a quiet dark area. Preserve original faces.
-Add no text or frames. Generate the lower art first, then assemble the real photo above it.
+Use $photo-to-sketch-storytelling to continue this photo into a drawing.
+Choose an existing object and add a small character doing something with it.
+Keep the original faces.
 ```
 
-### Included files
+## Watercolor travel journal — photo-to-watercolor-journal
 
-| File | Purpose |
-| --- | --- |
-| `SKILL.md` | Main workflow and matching description |
-| `agents/openai.yaml` | Name, short description and example request |
-| `references/prompt-template.md` | Lower-art prompt and revision examples |
-| `references/scene-guide.md` | Guidance for different photo types |
-| `references/assembly-and-faces.md` | Crop, assembly and original-face instructions |
-| `references/quality-checks.md` | Checks before delivery |
-| `scripts/compose_image.py` | Crop preview, assembly and saved-pixel checks |
+Turn the whole scene into a drawing with thin pen outlines and soft watercolor. Keep the photo's original shape and proportions. Let the painted edges fade gently into a paper background that suits the scene: warmer for sunny photos, cooler or darker for evening photos.
 
-## Download and install
+Add **four solid color samples** taken from the original photo at the lower right. Add a handwritten English title and a short English sentence near the bottom.
 
-1. On the repository page, select **Code → Download ZIP**.
+**Suitable photos:** streets, buildings, mountains, lakes, countryside, stations, night scenes and travel photos with people.
+
+**Example request:**
+
+```text
+Use $photo-to-watercolor-journal to make a watercolor travel page.
+Keep the original image ratio, add four colors from the photo,
+and add a handwritten English title and short sentence.
+```
+
+## Rainbow ink — photo-to-rainbow-ink-diptych
+
+Create a **9:16** vertical image with two parts. Put a real **16:9** crop of your original photo at the top. Below it, rebuild the same scene with colorful ink, watercolor and rough paper. Paper edges or folds should follow the shapes and light in the photo.
+
+Keep the original photo's main colors strongest. Use the other rainbow colors more quietly. Add no captions, frames, stars or smoke effects.
+
+Generate the lower art first, then place the actual original crop above it. Only crop and resize the top photo without stretching; do not recolor or redraw it.
+
+**Suitable photos:** night lights, streets, plants, flowers, water, reflections, landscapes, buildings, animals and people with their surroundings.
+
+**Example request:**
+
+```text
+Use $photo-to-rainbow-ink-diptych to make a 9:16 image.
+Keep a real 16:9 photo crop at the top and create colorful ink art below.
+Generate the lower art first, then assemble both parts. Add no text or frames.
+```
+
+## Paper art poster — photo-to-paper-relief-poster
+
+Make one separate **3:4** vertical poster for each photo. Place the main subject toward the lower right and leave about **60% warm white space**. Keep details clear inside the subject; let its outer edges become thin paper fibers, torn paper and small areas of paint, with gentle shadows.
+
+Put a small Chinese title at the upper left, followed by a smaller English phrase, a number and a short line in a color from the photo. Keep the text light and spaced out. The default size is **1536×2048 PNG**.
+
+**Suitable photos:** buildings, gardens, flowers, trees, objects, mountains, lakes, forests, animals and people with their surroundings.
+
+**Example request:**
+
+```text
+Use $photo-to-paper-relief-poster to make a separate 3:4 paper art poster.
+Keep plenty of warm white space, paper fibers around the subject,
+a small Chinese title and a short English phrase. Preserve original faces.
+```
+
+## Soft gradient — photo-to-soft-gradient
+
+Create a **9:16** vertical image. Keep a real **16:9** crop of the original at the top. Below it, choose a few recognizable details and rearrange their size and position so they appear to float or extend into light.
+
+Use **3–5 large, soft areas of color** that overlap and blend. Keep a dark blue, violet, green or source-colored background and a wide quiet area. Let some subject edges fade into the colors while a few details stay clear. Add no text, frames, neon outlines, stars, smoke or rough paper texture.
+
+Generate the lower art first, then place the actual original crop above it. The default result is **1152×2048 PNG**, with a **1152×648** photo above **1152×1400** art.
+
+**Suitable photos:** flowers, leaves, birds, fish, other animals, water, reflections, trees, night scenes, buildings and people with their surroundings.
+
+**Example request:**
+
+```text
+Use $photo-to-soft-gradient to make a 9:16 photo-and-gradient image.
+Keep the real photo crop above. Use 3–5 overlapping soft colors below,
+keep a few recognizable details and preserve original faces. Add no text or frames.
+```
+
+## Keep the original faces
+
+Ask the AI to keep the original face shape, features, expression, glasses and skin color. Check side profiles as well as front-facing faces.
+
+Some skills include a script that places the face directly from the original photo into the result. A written prompt alone does not guarantee the same face. This matters when using an AI tool that can generate images but cannot combine them with the original pixels.
+
+## Download and use
+
+1. On this repository's main page, select **Code → Download ZIP**.
 2. Extract the ZIP and open `skills/`.
-3. Copy the complete skill folder you want, including its references and scripts, into your AI tool's supported skill location, or use that tool's supported import flow.
-4. Upload your own photo and ask the AI to use the skill.
+3. Choose the complete folder for the style you want, keeping its instructions, references and scripts.
+4. Import it using your AI tool's supported method.
+5. Upload your own original photo and use the example request above.
 
-For the new style, choose `skills/photo-to-soft-gradient/`. Do not install only `SKILL.md`; keep the entire folder.
+The full names in the table are the skill names. The simpler section titles describe their styles; they do not rename the folders.
 
-## Requirements
+## Find this collection on GitHub
 
-Your AI tool must be able to read skills and view photos. Generating art also requires an image generation/editing tool. **Installing a skill does not install an image model or grant tool access.** Different image models can produce different results.
+Use the full skill name from the table, such as `photo-to-soft-gradient`. You can also use [this README search](https://github.com/search?q=photo-to-soft-gradient%20in%3Areadme&type=repositories).
 
-The soft-gradient assembly script needs Python 3 and Pillow:
+GitHub's default repository search checks the repository name, description and topics. To search README text specifically, add `in:readme`. Uploading a README does not change the repository's description or topics.
 
-```bash
-python -m pip install "Pillow>=10"
-```
+[GitHub search guide](https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories)
 
-Without an image tool, ask for a prompt only. Without ordinary image assembly, a generated upper photo cannot be claimed as the untouched original.
+## What your AI tool needs
 
-## Add a skill
+It must support skills, view your photos and provide an image generation or editing tool. **A skill supplies instructions; it does not install an image model.** Different models can produce different results.
 
-Create a separate folder under `skills/`, add its `SKILL.md` and needed files, then add a row to both README tables. Keep all table rows together with no blank line between them.
+The two styles with a real photo above generated art also need an ordinary image tool to join the images. Their scripts use Python 3 and Pillow. The paper poster's text script also needs fontTools and a Chinese font. See each skill for its exact requirements.
 
-Keep private photos, account details and generated private images outside this repository. Publish third-party example images only when you have permission.
+Without an image tool, ask for a prompt only. Face close-ups, ID photos and exact maps are outside the main use of these artistic styles.
+
+## Add another skill
+
+Create its own folder under `skills/`, add the required `SKILL.md` and supporting files, and add one row to both README tables.
+
+Keep private photos and account information outside this public repository. Include third-party example images only when you have permission to publish them.
 
 ## License
 
-Skill instructions and included code use the [MIT License](LICENSE). User photos and third-party images are not covered by that license.
+Instructions and included code use the [MIT License](LICENSE). User photos and third-party images are not covered by this license.
