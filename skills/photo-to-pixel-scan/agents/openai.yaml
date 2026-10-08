@@ -1,4 +1,0 @@
-interface:
-  display_name: "Photo to Pixel Scan"
-  short_description: "Blend scenery photos with large 2D pixel blocks"
-  default_prompt: "Use $photo-to-pixel-scan to blend this building or landscape photo with large 2D pixel art, a slightly wavy scan boundary and local scan colors. Keep the complete subject and whole frame close to half photo and half pixels."
