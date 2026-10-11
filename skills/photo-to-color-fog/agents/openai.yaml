@@ -1,0 +1,4 @@
+interface:
+  display_name: "Photo to Color Fog"
+  short_description: "Add deep teal fog and warm amber backlight"
+  default_prompt: "Use $photo-to-color-fog to add deep teal and amber fog to this photo while preserving people, composition and dry ground."

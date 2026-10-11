@@ -1,6 +1,6 @@
 # Photo Skills
 
-Six AI skills for turning your photos into drawings, watercolor pages, colorful ink art, paper art posters, soft gradient images and photo/pixel scans.
+Seven AI skills for turning your photos into drawings, watercolor pages, colorful ink art, paper art posters, soft gradient images, photo/pixel scans and colored fog.
 
 [中文说明](README.zh-CN.md) · [License](LICENSE)
 
@@ -16,6 +16,7 @@ Choose a style below. Each skill has its own folder. Download the collection, th
 | Paper art poster | A 3:4 poster with a detailed subject, paper fibers around its edges, plenty of warm white space and small titles. | [photo-to-paper-relief-poster](skills/photo-to-paper-relief-poster/SKILL.md) |
 | Soft gradient | Your real photo above soft, overlapping areas of color, with a few clear details from the original. | [photo-to-soft-gradient](skills/photo-to-soft-gradient/SKILL.md) |
 | Pixel scan | Original photography beside 2D pixel art, with large square blocks, visibly pixel-painted buildings and a slightly wavy local-color scan. Keep the subject and frame near half-and-half. | [photo-to-pixel-scan](skills/photo-to-pixel-scan/SKILL.md) |
+| Color fog | Deep teal fog, warm amber backlight and dark recognizable subjects, with dry matte ground. | [photo-to-color-fog](skills/photo-to-color-fog/SKILL.md) |
 
 ## Photo and drawing — photo-to-sketch-storytelling
 
@@ -121,6 +122,24 @@ Keep the subject and whole frame close to half photo and half pixels.
 Use large visible pixel blocks, including on buildings,
 a slightly wavy scan and local source colors. Preserve the original photo region.
 ```
+
+## Color fog — photo-to-color-fog
+
+Add dense deep-teal and amber fog across the scene. Keep foreground air visible and let distant details fade. Place warm backlight outside the frame, forming a broad soft glow while people stay dark and recognizable. Preserve dry matte ground and existing lakes without adding puddles or strong gold reflections.
+
+Keep the original ratio, faces, poses, composition and scene layout. No captions, frames or comparison panels.
+
+**Suitable photos:** environmental portraits, travel groups, walking back views, forests, fields, lakesides, buildings and streets. Less suitable for ID photos, close-up faces or exact product colors.
+
+**Example request:**
+
+```text
+Use $photo-to-color-fog to add deep teal and amber fog.
+Keep original faces, poses, composition and dry ground.
+Preserve the original image ratio and output each photo separately.
+```
+
+[Full prompt and usage](skills/photo-to-color-fog/README.md)
 
 ## Keep the original faces
 
